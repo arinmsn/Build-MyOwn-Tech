@@ -28,7 +28,7 @@ function Box(x, y, z, r) {
   this.show = function () {
     push();
     translate(this.pos.x, this.pos.y, this.pos.z);
-    Box(this.r);
+    box(this.r);
     pop;
   };
 }
