@@ -29,6 +29,6 @@ function Box(x, y, z, r) {
     push();
     translate(this.pos.x, this.pos.y, this.pos.z);
     box(this.r);
-    pop;
+    pop();
   };
 }
