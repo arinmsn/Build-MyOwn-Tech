@@ -7,7 +7,7 @@ function Snake() {
   this.tail = [];
 
   this.eat = function (pos) {
-    var d = dist(this.x, this.y, pos.x, pos.y);
+    let d = dist(this.x, this.y, pos.x, pos.y);
     if (d < 1) {
       this.total++;
       return true;
@@ -22,9 +22,9 @@ function Snake() {
   };
 
   this.death = function () {
-    for (var i = 0; i < this.tail.length; i++) {
-      var pos = this.tail[i];
-      var d = dist(this.x, this.y, pos.x, pos.y);
+    for (let i = 0; i < this.tail.length; i++) {
+      let pos = this.tail[i];
+      let d = dist(this.x, this.y, pos.x, pos.y);
       if (d < 1) {
         console.log("Game over - Starting over");
         this.total = 0;
@@ -34,7 +34,7 @@ function Snake() {
   };
 
   this.update = function () {
-    for (var i = 0; i < this.tail.length - 1; i++) {
+    for (let i = 0; i < this.tail.length - 1; i++) {
       this.tail[i] = this.tail[i + 1];
     }
 
@@ -51,7 +51,7 @@ function Snake() {
 
   this.show = function () {
     fill(255);
-    for (var i = 0; i < this.tail.length; i++) {
+    for (let i = 0; i < this.tail.length; i++) {
       rect(this.tail[i].x, this.tail[i].y, scl, scl);
     }
     rect(this.x, this.y, scl, scl);
