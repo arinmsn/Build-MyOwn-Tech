@@ -16,8 +16,14 @@ function pickLocation() {
   food.mult(scl);
 }
 
+function mousePressed() {
+  snake.total++;
+}
+
 function draw() {
   background(51);
+
+  snake.death();
   snake.update();
   snake.show();
 
