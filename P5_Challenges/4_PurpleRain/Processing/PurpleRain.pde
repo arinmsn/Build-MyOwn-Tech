@@ -2,7 +2,7 @@
 // (138, 43, 226)
 // (230, 230, 250) // background
 
-Drop[] drops = new Drop[100];
+Drop[] drops = new Drop[300];
 
 void setup(){
   size(640, 360);
