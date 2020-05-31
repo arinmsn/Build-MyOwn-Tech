@@ -1,19 +1,19 @@
-  // middle of the screen
- float x = width/2;
- // top of the screen
- float y = 0;
- float yspeed = 1;
+class Drop {
+ float x = random(width);
+ float y = random(-200, -100);
+ float yspeed = random(4, 10);
  
  void fall(){
    y = y + yspeed;
+
+   if (y > height) {
+     y = random(-200, -100);
+   }
  }
  
  void show() {
    stroke(138, 43, 226);
-   for (int i = 0; i < drops.length; i++){
-    drops[i].fall();
-    drops[i].show();
-  }
+   line(x, y, x, y+10);
  }
   
 }
