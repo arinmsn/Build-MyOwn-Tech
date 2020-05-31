@@ -10,7 +10,10 @@
  
  void show() {
    stroke(138, 43, 226);
-   line(x, y, x, y+10);
+   for (int i = 0; i < drops.length; i++){
+    drops[i].fall();
+    drops[i].show();
+  }
  }
   
 }
