@@ -1,16 +1,20 @@
 var ship;
-var flower;
+var flowers = [];
 
 function setup() {
   createCanvas(600, 400);
   ship = new Ship();
-  flower = new Flower();
+  for (var i = 0; i < 5; i++) {
+    flowers[i] = new Flower(random(width), 20);
+  }
 }
 
 function draw() {
   background(51);
   ship.show();
-  flower.show();
+  for (var i = 0; i < 5; i++) {
+    flowers[i].show();
+  }
 }
 
 function keyPressed() {
