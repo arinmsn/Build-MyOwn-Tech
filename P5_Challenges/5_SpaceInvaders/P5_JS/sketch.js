@@ -21,13 +21,20 @@ function draw() {
 
     for (var j = 0; j < flowers.length; j++) {
       if (drops[i].hits(flowers[j])) {
-        console.log("It hit!");
+        flowers[j].grow();
+        drops[i].evaporate();
       }
     }
   }
 
   for (var i = 0; i < flowers.length; i++) {
     flowers[i].show();
+  }
+
+  for (var i = 0; i < drops.length; i++) {
+    if (drops[i].toDelete) {
+      drops.splice(i, 1);
+    }
   }
 }
 
