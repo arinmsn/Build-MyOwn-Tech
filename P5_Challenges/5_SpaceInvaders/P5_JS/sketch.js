@@ -18,12 +18,22 @@ function draw() {
   for (var i = 0; i < drops.length; i++) {
     drops[i].show();
     drops[i].move();
+
+    for (var j = 0; j < flowers.length; j++) {
+      if (drops[i].hits(flowers[j])) {
+        console.log("It hit!");
+      }
+    }
+  }
+
+  for (var i = 0; i < flowers.length; i++) {
+    flowers[i].show();
   }
 }
 
 function keyPressed() {
   if (key === " ") {
-    var drop = new Drop(width / 2, height / 2);
+    var drop = new Drop(ship.x, height);
     drops.push(drop);
   }
   if (keyCode === RIGHT_ARROW) {
