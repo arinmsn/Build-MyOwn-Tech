@@ -1,13 +1,16 @@
 var ship;
+var flower;
 
 function setup() {
   createCanvas(600, 400);
   ship = new Ship();
+  flower = new Flower();
 }
 
 function draw() {
   background(51);
   ship.show();
+  flower.show();
 }
 
 function keyPressed() {
