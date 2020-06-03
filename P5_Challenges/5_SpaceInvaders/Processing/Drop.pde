@@ -1,7 +1,5 @@
 class Drop {
-    float x;
-    float y;
-    float r;
+    float x, y, r;
 
     boolean toDelete;
 

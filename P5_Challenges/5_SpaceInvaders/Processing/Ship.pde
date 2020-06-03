@@ -1,6 +1,5 @@
 class Ship {
-    float x;
-    float xdir;
+    float x, xdir;
 
     Ship(){
         this.x = width/2;
