@@ -4,10 +4,16 @@ function Flower(x, y) {
   this.r = 30;
 
   this.xdir = 1;
-  this.ydir = 0;
 
   this.grow = function () {
     this.r = this.r + 2;
+  };
+
+  this.shiftDown = function () {
+    // reverse the direction
+    this.xdir *= -1;
+    // move it down
+    this.y += this.r;
   };
 
   this.move = function () {

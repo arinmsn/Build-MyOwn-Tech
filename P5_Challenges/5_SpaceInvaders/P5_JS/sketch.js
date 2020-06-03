@@ -27,9 +27,21 @@ function draw() {
     }
   }
 
+  var right = false;
+
   for (var i = 0; i < flowers.length; i++) {
     flowers[i].show();
     flowers[i].move();
+
+    if (flowers[i].x > width) {
+      right = true;
+    }
+  }
+
+  if (right) {
+    for (var i = 0; i < flowers.length; i++) {
+      flowers[i].shiftDown();
+    }
   }
 
   for (var i = drops.length - 1; i >= 0; i--) {
