@@ -1,12 +1,14 @@
-var cell;
+var cells = [];
 
 function setup() {
   createCanvas(400, 400);
-  cell = new Cell();
+  cells.push(new Cell());
 }
 
 function draw() {
   background(51);
-  cell.move();
-  cell.show();
+  for (var i = 0; i < cells.length; i++) {
+    cells[i].move();
+    cells[i].show();
+  }
 }
