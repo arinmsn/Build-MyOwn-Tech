@@ -21,7 +21,8 @@ function Flower(x, y) {
   };
 
   this.show = function () {
-    fill(255, 0, 200);
+    noStroke();
+    fill(255, 0, 200, 150);
     ellipse(this.x, this.y, this.r * 2, this.r * 2);
   };
 }
