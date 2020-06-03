@@ -3,8 +3,16 @@ function Flower(x, y) {
   this.y = y;
   this.r = 30;
 
+  this.xdir = 1;
+  this.ydir = 0;
+
   this.grow = function () {
     this.r = this.r + 2;
+  };
+
+  this.move = function () {
+    this.x = this.x + this.xdir;
+    this.y = this.y + this.ydir;
   };
 
   this.show = function () {

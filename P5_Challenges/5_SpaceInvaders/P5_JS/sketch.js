@@ -29,9 +29,10 @@ function draw() {
 
   for (var i = 0; i < flowers.length; i++) {
     flowers[i].show();
+    flowers[i].move();
   }
 
-  for (var i = 0; i < drops.length; i++) {
+  for (var i = drops.length - 1; i >= 0; i--) {
     if (drops[i].toDelete) {
       drops.splice(i, 1);
     }
