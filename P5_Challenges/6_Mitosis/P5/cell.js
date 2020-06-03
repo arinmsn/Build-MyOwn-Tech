@@ -1,9 +1,9 @@
-function Cell() {
-  this.pos = createVector(random(width), random(height));
+function Cell(pos, r, c) {
+  this.pos = pos || createVector(random(width), random(height));
   // radius
-  this.r = 80;
-  // random(x, y) is range of colors for red & blue
-  this.c = color(random(100, 255), 0, random(100, 255));
+  this.r = r || 60;
+  // color
+  this.c = c || color(random(100, 255), 0, random(100, 255));
 
   this.clicked = function (x, y) {
     var d = dist(this.pos.x, this.pos.y, x, y);
@@ -12,6 +12,11 @@ function Cell() {
     } else {
       return false;
     }
+  };
+
+  this.mitosis = function () {
+    var cell = new Cell(this.pos, this.r / 2, this.c);
+    return cell;
   };
 
   this.move = function () {
