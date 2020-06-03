@@ -5,6 +5,15 @@ function Cell() {
   // random(x, y) is range of colors for red & blue
   this.c = color(random(100, 255), 0, random(100, 255));
 
+  this.clicked = function (x, y) {
+    var d = dist(this.pos.x, this.pos.y, x, y);
+    if (d < this.r) {
+      return true;
+    } else {
+      return false;
+    }
+  };
+
   this.move = function () {
     var velocity = p5.Vector.random2D();
     this.pos.add(velocity);

@@ -12,3 +12,11 @@ function draw() {
     cells[i].show();
   }
 }
+
+function mousePressed() {
+  for (var i = 0; i < cells.length; i++) {
+    if (cells[i].clicked(mouseX, mouseY)) {
+      console.log("Clicked!");
+    }
+  }
+}
