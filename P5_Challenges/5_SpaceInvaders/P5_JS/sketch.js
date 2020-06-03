@@ -27,18 +27,18 @@ function draw() {
     }
   }
 
-  var right = false;
+  var edge = false;
 
   for (var i = 0; i < flowers.length; i++) {
     flowers[i].show();
     flowers[i].move();
 
-    if (flowers[i].x > width) {
-      right = true;
+    if (flowers[i].x > width || flowers[i].x < 0) {
+      edge = true;
     }
   }
 
-  if (right) {
+  if (edge) {
     for (var i = 0; i < flowers.length; i++) {
       flowers[i].shiftDown();
     }

@@ -18,7 +18,6 @@ function Flower(x, y) {
 
   this.move = function () {
     this.x = this.x + this.xdir;
-    this.y = this.y + this.ydir;
   };
 
   this.show = function () {
