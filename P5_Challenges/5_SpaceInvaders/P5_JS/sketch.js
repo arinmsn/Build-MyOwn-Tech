@@ -52,6 +52,13 @@ function draw() {
   }
 }
 
+function keyReleased() {
+  if (key != " ") {
+    // any key that is released
+    ship.setDir(0);
+  }
+}
+
 function keyPressed() {
   if (key === " ") {
     var drop = new Drop(ship.x, height);

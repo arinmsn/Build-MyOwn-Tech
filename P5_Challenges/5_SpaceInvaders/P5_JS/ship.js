@@ -13,6 +13,6 @@ function Ship() {
   };
 
   this.move = function (dir) {
-    this.x += this.dir * 10;
+    this.x += this.xdir * 5;
   };
 }
