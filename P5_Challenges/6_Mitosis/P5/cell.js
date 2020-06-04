@@ -1,5 +1,10 @@
 function Cell(pos, r, c) {
-  this.pos = pos || createVector(random(width), random(height));
+  if (pos) {
+    this.pos = pos.copy();
+  } else {
+    this.pos = pos || createVector(random(width), random(height));
+  }
+
   // radius
   this.r = r || 60;
   // color

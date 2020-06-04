@@ -16,7 +16,8 @@ function draw() {
 function mousePressed() {
   for (var i = 0; i < cells.length; i++) {
     if (cells[i].clicked(mouseX, mouseY)) {
-      console.log("Clicked!");
+      var cellA = cells[i].mitosis();
+      cells.push(cellA);
     }
   }
 }
