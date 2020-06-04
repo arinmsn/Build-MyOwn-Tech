@@ -8,7 +8,7 @@ function Cell(pos, r, c) {
   // radius
   this.r = r || 60;
   // color
-  this.c = c || color(random(100, 255), 0, random(100, 255));
+  this.c = c || color(random(100, 255), 0, random(100, 255), 100);
 
   this.clicked = function (x, y) {
     var d = dist(this.pos.x, this.pos.y, x, y);
