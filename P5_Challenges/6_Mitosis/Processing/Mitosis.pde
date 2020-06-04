@@ -13,3 +13,14 @@ void draw(){
     c.show();
   }
 }
+
+void mousePressed(){
+  for (int i = cells.size() - 1; i >= 0; i--){
+    Cell c = cells.get(i);
+    if (c.clicked(mouseX, mouseY)){
+      cells.add(c.mitosis());
+      cells.add(c.mitosis());
+      cells.remove(i);
+    }
+  }
+}
