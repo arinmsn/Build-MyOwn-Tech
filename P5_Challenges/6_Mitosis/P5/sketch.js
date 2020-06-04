@@ -1,12 +1,13 @@
 var cells = [];
 
 function setup() {
-  createCanvas(400, 400);
+  createCanvas(600, 600);
+  cells.push(new Cell());
   cells.push(new Cell());
 }
 
 function draw() {
-  background(51);
+  background(200);
   for (var i = 0; i < cells.length; i++) {
     cells[i].move();
     cells[i].show();
@@ -16,8 +17,9 @@ function draw() {
 function mousePressed() {
   for (var i = cells.length - 1; i >= 0; i--) {
     if (cells[i].clicked(mouseX, mouseY)) {
-      var cellA = cells[i].mitosis();
-      cells.push(cellA);
+      cells.push(cells[i].mitosis());
+      cells.push(cells[i].mitosis());
+      cells.splice(i, 1);
     }
   }
 }

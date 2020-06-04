@@ -2,7 +2,7 @@ function Cell(pos, r, c) {
   if (pos) {
     this.pos = pos.copy();
   } else {
-    this.pos = pos || createVector(random(width), random(height));
+    this.pos = createVector(random(width), random(height));
   }
 
   // radius
@@ -20,7 +20,8 @@ function Cell(pos, r, c) {
   };
 
   this.mitosis = function () {
-    var cell = new Cell(this.pos, this.r / 2, this.c);
+    // this.pos.x += random(-this.r, this.r);
+    var cell = new Cell(this.pos, this.r * 0.8, this.c);
     return cell;
   };
 
