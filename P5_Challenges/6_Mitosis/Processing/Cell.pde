@@ -14,6 +14,11 @@ class Cell {
    this.r = 60; 
    this.c = color(random(100, 255), 0, random(100, 255), 100);
  }
+
+ void move(){
+   PVector velocity = PVector.random2D();
+   this.pos.add(velocity);
+ }
  
  void show(){
    noStroke();
