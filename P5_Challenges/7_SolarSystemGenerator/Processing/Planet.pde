@@ -7,7 +7,7 @@ class Planet {
  Planet(float r, float d) {
    radius = r;
    distance = d;
-   angle = 0;
+   angle = random(TWO_PI);
  }
 
  void spawnMoons(int total){
@@ -20,10 +20,10 @@ class Planet {
  }
  
  void show(){
-     // Like a save
-     pushMatrix();
-     translate(distance, 0);
-     rotate(angle);
+    // Like a save
+    pushMatrix();
+    rotate(angle);
+    translate(distance, 0);
     fill(255, 100);
     ellipse(0, 0, radius*2, radius*2);
    
