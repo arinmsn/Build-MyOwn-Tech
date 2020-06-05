@@ -2,7 +2,7 @@ Planet sun;
 
 void setup(){
   size(600, 600);
-  sun = new Planet(100, 0);
+  sun = new Planet(50, 0);
   sun.spawnMoons(5);
 }
 
