@@ -3,11 +3,22 @@ class Planet {
  float angle;
  float distance;
  Planet[] planets;
+ float orbitSpeed;
  
  Planet(float r, float d) {
    radius = r;
    distance = d;
    angle = random(TWO_PI);
+   orbitSpeed = random(0.1, 0.3);
+ }
+
+ void orbit() {
+     angle = angle + orbitSpeed;
+     if (planets != null){
+         for (int i = 0; i < planets.length; i++){
+             planets[i].orbit();
+         }
+     }
  }
 
  void spawnMoons(int total){
