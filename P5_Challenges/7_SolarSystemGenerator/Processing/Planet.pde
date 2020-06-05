@@ -1,4 +1,5 @@
 class Planet {
+
  float radius;
  float angle;
  float distance;
@@ -25,8 +26,8 @@ class Planet {
      planets = new Planet[total];
      for (int i = 0; i < planets.length; i++){
          float r = radius * 0.5;
-         float d =  random(75, 150);
-         float o = random(0.1, 0.2);
+         float d =  random(75, 300);
+         float o = random(0.001, 0.2);
          planets[i] = new Planet(r, d, o);
      }
  }
@@ -34,9 +35,9 @@ class Planet {
  void show(){
     // Like a save
     pushMatrix();
+    fill(255, 100);
     rotate(angle);
     translate(distance, 0);
-    fill(255, 100);
     ellipse(0, 0, radius*2, radius*2);
    
     if (planets != null) {
