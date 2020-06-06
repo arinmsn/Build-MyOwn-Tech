@@ -33,7 +33,7 @@ class Planet {
          float d =  random((radius+r), (radius+r)*2);
          float o = random(-0.1, 0.1);
          planets[i] = new Planet(r, d/level, o);
-         if (level < 2) {
+         if (level < 1) {
            // each planet has 1 moon 
            int num = 1;
            planets[i].spawnMoons(num, level+1);
@@ -49,7 +49,7 @@ class Planet {
     fill(255);
     // rotate(angle);
     translate(v.x, v.y, v.z);
-    translate(distance, 0);
+    //translate(distance, 0);
     sphere(radius);
     //ellipse(0, 0, radius*2, radius*2);
    
