@@ -26,7 +26,8 @@ class Planet {
      planets = new Planet[total];
      for (int i = 0; i < planets.length; i++){
          float r = radius/(level*2);
-         float d =  random(50, 200);
+         // (radius + r) means child move on edge of Sun 
+         float d =  random((radius+r), (radius+r)*2);
          float o = random(-0.1, 0.1);
          planets[i] = new Planet(r, d/level, o);
          if (level < 2) {
@@ -43,7 +44,8 @@ class Planet {
     fill(255, 100);
     rotate(angle);
     translate(distance, 0);
-    ellipse(0, 0, radius*2, radius*2);
+    sphere(radius);
+    //ellipse(0, 0, radius*2, radius*2);
    
     if (planets != null) {
      // children or sub-planets

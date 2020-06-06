@@ -1,7 +1,7 @@
 Planet sun;
 
 void setup(){
-  size(600, 600);
+  size(600, 600, P3D);
   sun = new Planet(50, 0, 0);
   sun.spawnMoons(5, 1);
 }
