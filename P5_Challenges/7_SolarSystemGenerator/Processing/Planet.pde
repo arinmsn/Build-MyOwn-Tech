@@ -41,7 +41,8 @@ class Planet {
  void show(){
     // Like a save
     pushMatrix();
-    fill(255, 100);
+    noStroke();
+    fill(255);
     rotate(angle);
     translate(distance, 0);
     sphere(radius);
