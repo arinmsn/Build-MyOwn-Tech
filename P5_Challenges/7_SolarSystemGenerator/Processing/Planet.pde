@@ -5,10 +5,13 @@ class Planet {
  float distance;
  Planet[] planets;
  float orbitSpeed;
+ PVector v;
  
  Planet(float r, float d, float o) {
+   v = PVector.random3D();
    radius = r;
    distance = d;
+   v.mult(distance);
    angle = random(TWO_PI);
    orbitSpeed = o;
  }
@@ -31,7 +34,8 @@ class Planet {
          float o = random(-0.1, 0.1);
          planets[i] = new Planet(r, d/level, o);
          if (level < 2) {
-           int num = int(random(0, 4));
+           // each planet has 1 moon 
+           int num = 1;
            planets[i].spawnMoons(num, level+1);
          }
          
@@ -43,7 +47,8 @@ class Planet {
     pushMatrix();
     noStroke();
     fill(255);
-    rotate(angle);
+    // rotate(angle);
+    translate(v.x, v.y, v.z);
     translate(distance, 0);
     sphere(radius);
     //ellipse(0, 0, radius*2, radius*2);
