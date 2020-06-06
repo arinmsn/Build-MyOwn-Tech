@@ -22,13 +22,18 @@ class Planet {
      }
  }
 
- void spawnMoons(int total){
+ void spawnMoons(int total, int level){
      planets = new Planet[total];
      for (int i = 0; i < planets.length; i++){
-         float r = radius * 0.5;
-         float d =  random(75, 300);
-         float o = random(0.001, 0.2);
-         planets[i] = new Planet(r, d, o);
+         float r = radius/(level*2);
+         float d =  random(50, 200);
+         float o = random(-0.1, 0.1);
+         planets[i] = new Planet(r, d/level, o);
+         if (level < 2) {
+           int num = int(random(0, 4));
+           planets[i].spawnMoons(num, level+1);
+         }
+         
      }
  }
  
