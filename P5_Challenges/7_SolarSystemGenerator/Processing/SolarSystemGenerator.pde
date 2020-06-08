@@ -4,6 +4,7 @@ import peasy.org.apache.commons.math.geometry.*;
 import peasy.test.*;
 
 Planet sun;
+PeasyCam cam;
 
 void setup(){
   size(600, 600, P3D);
@@ -16,7 +17,6 @@ void setup(){
 void draw() {
   background(0); 
   lights();
-  translate(width/2, height/2);
   sun.show();
   sun.orbit();
 }

@@ -35,7 +35,7 @@ class Planet {
          planets[i] = new Planet(r, d/level, o);
          if (level < 1) {
            // each planet has 1 moon 
-           int num = 1;
+           int num = 1; //int(random(0, 4));
            planets[i].spawnMoons(num, level+1);
          }
          
@@ -47,7 +47,11 @@ class Planet {
     pushMatrix();
     noStroke();
     fill(255);
-    // rotate(angle);
+    // perpendicular vector
+    PVector v2 = new PVector(1, 0, 1);
+    PVector p = v.cross(v2);
+    rotate(angle, p.x, p.y, p.z);
+
     translate(v.x, v.y, v.z);
     //translate(distance, 0);
     sphere(radius);
