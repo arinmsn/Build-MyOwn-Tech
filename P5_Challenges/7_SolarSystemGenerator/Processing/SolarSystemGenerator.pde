@@ -6,8 +6,11 @@ import peasy.test.*;
 Planet sun;
 PeasyCam cam;
 
+Pimage img;
+
 void setup(){
   size(600, 600, P3D);
+  img = loadImage("sun.jpg");
   // Camera will look 100 units away
   cam = new PeasyCam(this, 500);
   sun = new Planet(50, 0, 0);

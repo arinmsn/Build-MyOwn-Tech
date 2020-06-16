@@ -6,6 +6,8 @@ class Planet {
  Planet[] planets;
  float orbitSpeed;
  PVector v;
+
+ PShape globe;
  
  Planet(float r, float d, float o) {
    v = PVector.random3D();
@@ -14,6 +16,11 @@ class Planet {
    v.mult(distance);
    angle = random(TWO_PI);
    orbitSpeed = o;
+
+   noStroke();
+   noFill();
+   globe = createShape(SPHERE, radius);
+   globe.setTextuure(img);
  }
 
  void orbit() {
@@ -50,11 +57,13 @@ class Planet {
     PVector p = v.cross(v2);
     rotate(angle, p.x, p.y, p.z);
     stroke(255);
-    line(0, 0, 0, v.x*10, v.y*10, v.z*10);
-    line(0, 0, 0, p.x*10, p.y*10, p.z*10);
+    // line(0, 0, 0, v.x*10, v.y*10, v.z*10);
+    // line(0, 0, 0, p.x*10, p.y*10, p.z*10);
     translate(v.x, v.y, v.z);
     noStroke();
-    sphere(radius);
+    fill(255);
+    shape(globe);
+    //sphere(radius);
    
     if (planets != null) {
      // children or sub-planets
