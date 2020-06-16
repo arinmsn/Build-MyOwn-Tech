@@ -26,6 +26,8 @@ void setup(){
 void draw() {
   background(0); 
   lights();
+  // Light will be coming from the Sun.
+  //pointLight(255, 255, 255, 0, 0, 0);
   sun.show();
   sun.orbit();
 }
