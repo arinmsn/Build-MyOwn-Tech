@@ -9,7 +9,7 @@ class Planet {
 
  PShape globe;
  
- Planet(float r, float d, float o) {
+ Planet(float r, float d, float o, PImage img) {
    v = PVector.random3D();
    radius = r;
    distance = d;

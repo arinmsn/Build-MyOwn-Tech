@@ -6,14 +6,20 @@ import peasy.test.*;
 Planet sun;
 PeasyCam cam;
 
-Pimage img;
+Pimage sunTexture;
+Pimage[] textures = new PImage[3];
 
 void setup(){
   size(600, 600, P3D);
-  img = loadImage("sun.jpg");
+
+  sunTexture = loadImage("sun.jpg");
+  textures[0] = loadImage("mars.jpg");
+  textures[1] = loadImage("earth.jpg");
+  textures[2] = loadImage("mercury.jpg");
+
   // Camera will look 100 units away
   cam = new PeasyCam(this, 500);
-  sun = new Planet(50, 0, 0);
+  sun = new Planet(50, 0, 0, sunTexture);
   sun.spawnMoons(1, 1);
 }
 
