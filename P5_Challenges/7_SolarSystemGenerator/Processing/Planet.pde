@@ -39,7 +39,8 @@ class Planet {
          // (radius + r) means child moves on edge of Sun 
          float d =  random((radius+r), (radius+r)*2);
          float o = random(-0.1, 0.1);
-         planets[i] = new Planet(r, d/level, o);
+         int index = int(random(0, textures.length));
+         planets[i] = new Planet(r, d/level, o, textures[index]);
          if (level < 1) {
            // each planet has 1 moon 
            int num = 1; //int(random(0, 4));
