@@ -19,6 +19,10 @@ class Cell {
         int y = this.j * w;
         stroke(255);
         noFill();
-        rect(x, y, w, w);
+        // rect(x, y, w, w);
+        line(x, y, x+w, y);
+    line(x+w, y, x+w, w);
+    line(x+w, y+w, x, y+w);
+    line(x, y+w, x, y);
     }
 }

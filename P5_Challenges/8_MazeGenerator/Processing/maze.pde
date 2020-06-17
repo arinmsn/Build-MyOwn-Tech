@@ -3,7 +3,7 @@
 // Depth-first search
 
 int cols, rows;
-int w = 20;
+int w = 40;
 
 ArrayList<Cell> grid = new ArrayList<Cell>();
 
