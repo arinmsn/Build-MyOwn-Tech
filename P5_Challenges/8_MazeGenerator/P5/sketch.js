@@ -33,14 +33,35 @@ function Cell(i, j) {
   // row number
   this.j = j;
 
+  // [top, right, buttom, left]
+  this.walls = [true, true, true, true];
+
   this.show = function () {
     var x = this.i * w;
     var y = this.j * w;
     stroke(255);
-    line(x, y, x + w, y);
-    line(x + w, y, x + w, y + w);
-    line(x + w, y + w, x, y + w);
-    line(x, y + w, x, y);
+    /*
+    Top left corner: (x, y)
+    Top right corner: (x+w, y)
+    Bottom left corner (x, y+w)
+    Bottom right corner (x+w, y+w)
+    */
+    if (this.walls[0]) {
+      line(x, y, x + w, y);
+    }
+
+    if (this.walls[1]) {
+      line(x + w, y, x + w, y + w);
+    }
+
+    if (this.walls[2]) {
+      line(x + w, y + w, x, y + w);
+    }
+
+    if (this.walls[3]) {
+      line(x, y + w, x, y);
+    }
+
     // noFill();
     // rect(x, y, w, w);
   };
