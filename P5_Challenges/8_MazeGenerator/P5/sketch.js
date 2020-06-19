@@ -5,6 +5,8 @@
 var cols, rows;
 var w = 40;
 var grid = [];
+// current cell being visited
+var current;
 
 function setup() {
   createCanvas(400, 400);
@@ -17,6 +19,7 @@ function setup() {
       grid.push(cell);
     }
   }
+  current = grid[0];
 }
 
 function draw() {
@@ -24,6 +27,7 @@ function draw() {
   for (var i = 0; i < grid.length; i++) {
     grid[i].show();
   }
+  current.visited = true;
 }
 
 function Cell(i, j) {
@@ -35,6 +39,7 @@ function Cell(i, j) {
 
   // [top, right, buttom, left]
   this.walls = [true, true, true, true];
+  this.visited = false;
 
   this.show = function () {
     var x = this.i * w;
@@ -62,7 +67,9 @@ function Cell(i, j) {
       line(x, y + w, x, y);
     }
 
-    // noFill();
-    // rect(x, y, w, w);
+    if (this.visited) {
+      fill(255, 0, 255, 100);
+      rect(x, y, w, w);
+    }
   };
 }
