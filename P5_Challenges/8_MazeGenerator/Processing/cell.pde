@@ -1,6 +1,7 @@
 class Cell {
     int i, j;
     boolean[] walls = {true, true, true, true};
+    boolean visited = false;
 
     Cell(int ii, int jj){
         i = ii;
@@ -18,9 +19,7 @@ class Cell {
     void show(){
         int x = this.i * w;
         int y = this.j * w;
-        stroke(255);
-        noFill();
-        // rect(x, y, w, w);
+        noStroke(255);
 
         if (this.walls[0]) {
             line(x, y, x+w, y);
@@ -38,6 +37,10 @@ class Cell {
             line(x, y+w, x, y);
         }
         
-        
+        if (this.visited){
+            noStroke();
+            fill(255, 0, 255, 100);
+            rect(x, y, w, w);
+        }
     }
 }

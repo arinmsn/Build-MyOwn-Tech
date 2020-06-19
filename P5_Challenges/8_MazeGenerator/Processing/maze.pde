@@ -3,7 +3,7 @@
 // Depth-first search
 
 int cols, rows;
-int w = 40;
+int w = 20;
 
 ArrayList<Cell> grid = new ArrayList<Cell>();
 
@@ -20,6 +20,7 @@ void setup(){
             grid.add(cell);
         }
     }
+    current = grid.get(0);
 }
 
 void draw(){
@@ -27,4 +28,6 @@ void draw(){
     for (int i = 0; i < grid.size(); i++){
         grid.get(i).show();
     }
+    current.visited = true;
+    current.highlight();
 }
