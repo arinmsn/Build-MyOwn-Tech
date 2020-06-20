@@ -12,6 +12,7 @@ function setup() {
   createCanvas(400, 400);
   cols = floor(width / w);
   rows = floor(height / w);
+  frameRate(5);
 
   for (var j = 0; j < rows; j++) {
     for (var i = 0; i < cols; i++) {
@@ -28,7 +29,12 @@ function draw() {
     grid[i].show();
   }
   current.visited = true;
-  current.checkNeighbors();
+  // next cell
+  var next = current.checkNeighbors();
+  if (next) {
+    next.visited = true;
+    current = next;
+  }
 }
 
 function index(i, j) {
@@ -72,6 +78,13 @@ function Cell(i, j) {
 
     if (left && !left.visited) {
       neighbors.push(left);
+    }
+
+    if (neighbors.length > 0) {
+      var r = floor(random(0, neighbors.length));
+      return neighbors[r];
+    } else {
+      return undefined;
     }
   };
 
