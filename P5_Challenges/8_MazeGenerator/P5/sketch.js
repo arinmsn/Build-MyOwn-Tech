@@ -32,6 +32,10 @@ function draw() {
 }
 
 function index(i, j) {
+  if (i < 0 || j < 0 || i > cols - 1 || j > rows - 1) {
+    return -1;
+  }
+
   return i + j * cols;
 }
 
@@ -54,19 +58,19 @@ function Cell(i, j) {
     var bottom = grid[index(i, j + 1)];
     var left = grid[index(i - 1, j)];
 
-    if (!top.visited) {
+    if (top && !top.visited) {
       neighbors.push(top);
     }
 
-    if (!right.visited) {
+    if (right && !right.visited) {
       neighbors.push(right);
     }
 
-    if (!bottom.visited) {
+    if (bottom && !bottom.visited) {
       neighbors.push(bottom);
     }
 
-    if (!left.visited) {
+    if (left && !left.visited) {
       neighbors.push(left);
     }
   };
