@@ -31,3 +31,10 @@ void draw(){
     current.visited = true;
     current.highlight();
 }
+
+int index(int i, int j){
+    if (i < 0 || j < 0 || i > cols-1 || j > rows-1){
+        return 0;
+    }
+    return i + j * cols;
+}
