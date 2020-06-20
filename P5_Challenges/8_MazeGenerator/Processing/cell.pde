@@ -8,6 +8,31 @@ class Cell {
         j = jj;
     }
 
+    Cell checkNeighbors(){
+        ArrayList<Cell> neighbors = new ArrayList<Cell>();
+
+        Cell top    = grid.get(index(i, j-1));
+        Cell right  = grid.get(index(i+1, j));
+        Cell bottom = grid.get(index(i, j+1));
+        Cell left   = grid.get(index(i-1, j));
+
+        if (top != null && !top.visited){
+            neighbors.add(top);
+        }
+
+        if (right != null && !right.visited){
+            neighbors.add(right);
+        }
+
+        if (bottom != null && !bottom.visited){
+            neighbors.add(bottom);
+        }
+
+        if (left != null && !left.visited){
+            neighbors.add(left);
+        }
+    }
+
     void highlight(){
         int x = this.i * w;
         int y = this.j * w;
