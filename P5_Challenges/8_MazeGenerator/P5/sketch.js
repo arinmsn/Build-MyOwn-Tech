@@ -29,10 +29,14 @@ function draw() {
     grid[i].show();
   }
   current.visited = true;
-  // next cell
+  // // Step 1 Mark the current cell as visited
   var next = current.checkNeighbors();
   if (next) {
     next.visited = true;
+    // Step 3: Remove wall between current cell and chosen cell
+    removeWalls(current, next);
+
+    // Step 4:
     current = next;
   }
 }
@@ -115,8 +119,34 @@ function Cell(i, j) {
     }
 
     if (this.visited) {
+      noStroke();
       fill(255, 0, 255, 100);
       rect(x, y, w, w);
     }
   };
+}
+
+function removeWalls(a, b) {
+  // difference between current cell and neighboring cell
+  var x = a.i - b.i;
+  if (x === 1) {
+    // left wall of cell
+    a.walls[3] = false;
+    // right wall of cell
+    b.walls[1] = false;
+  } else if (x === -1) {
+    a.walls[1] = false;
+    b.walls[3] = false;
+  }
+
+  var y = a.j - b.j;
+  if (y === 1) {
+    // top of cell
+    a.walls[0] = false;
+    // bottom wall of cell
+    b.walls[2] = false;
+  } else if (y === -1) {
+    a.walls[2] = false;
+    b.walls[0] = false;
+  }
 }
