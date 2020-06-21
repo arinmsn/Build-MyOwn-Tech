@@ -33,6 +33,7 @@ function draw() {
   var next = current.checkNeighbors();
   if (next) {
     next.visited = true;
+    current.highlight();
     // Step 3: Remove wall between current cell and chosen cell
     removeWalls(current, next);
 
@@ -90,6 +91,14 @@ function Cell(i, j) {
     } else {
       return undefined;
     }
+  };
+
+  this.highlight = function () {
+    var x = this.i * w;
+    var y = this.j * w;
+    noStroke();
+    fill(0, 0, 255, 100);
+    rect(x, y, w, w);
   };
 
   this.show = function () {
