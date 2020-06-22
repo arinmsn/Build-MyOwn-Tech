@@ -8,6 +8,8 @@ var grid = [];
 // current cell being visited
 var current;
 
+var stack = [];
+
 function setup() {
   createCanvas(400, 400);
   cols = floor(width / w);
@@ -34,11 +36,17 @@ function draw() {
   if (next) {
     next.visited = true;
     current.highlight();
+
+    // Step 2
+    stack.push(current);
+
     // Step 3: Remove wall between current cell and chosen cell
     removeWalls(current, next);
 
     // Step 4:
     current = next;
+  } else if (stack.length > 0) {
+    current = stack.pop();
   }
 }
 
