@@ -2,23 +2,22 @@
 // Recursive backtracker
 // Depth-first search
 
-var cols, rows;
-var w = 20;
-var grid = [];
+let cols, rows;
+let w = 20;
+let grid = [];
 // current cell being visited
-var current;
-
-var stack = [];
+let current;
+let stack = [];
 
 function setup() {
-  createCanvas(400, 400);
+  createCanvas(500, 500);
   cols = floor(width / w);
   rows = floor(height / w);
   frameRate(5);
 
-  for (var j = 0; j < rows; j++) {
-    for (var i = 0; i < cols; i++) {
-      var cell = new Cell(i, j);
+  for (let j = 0; j < rows; j++) {
+    for (let i = 0; i < cols; i++) {
+      let cell = new Cell(i, j);
       grid.push(cell);
     }
   }
@@ -27,13 +26,13 @@ function setup() {
 
 function draw() {
   background(51);
-  for (var i = 0; i < grid.length; i++) {
+  for (let i = 0; i < grid.length; i++) {
     grid[i].show();
   }
   current.visited = true;
   current.highlight();
   // // Step 1 Mark the current cell as visited
-  var next = current.checkNeighbors();
+  let next = current.checkNeighbors();
   if (next) {
     next.visited = true;
 
@@ -58,94 +57,9 @@ function index(i, j) {
   return i + j * cols;
 }
 
-function Cell(i, j) {
-  // column number
-  this.i = i;
-
-  // row number
-  this.j = j;
-
-  // [top, right, buttom, left]
-  this.walls = [true, true, true, true];
-  this.visited = false;
-
-  this.checkNeighbors = function () {
-    var neighbors = [];
-
-    var top = grid[index(i, j - 1)];
-    var right = grid[index(i + 1, j)];
-    var bottom = grid[index(i, j + 1)];
-    var left = grid[index(i - 1, j)];
-
-    if (top && !top.visited) {
-      neighbors.push(top);
-    }
-
-    if (right && !right.visited) {
-      neighbors.push(right);
-    }
-
-    if (bottom && !bottom.visited) {
-      neighbors.push(bottom);
-    }
-
-    if (left && !left.visited) {
-      neighbors.push(left);
-    }
-
-    if (neighbors.length > 0) {
-      var r = floor(random(0, neighbors.length));
-      return neighbors[r];
-    } else {
-      return undefined;
-    }
-  };
-
-  this.highlight = function () {
-    var x = this.i * w;
-    var y = this.j * w;
-    noStroke();
-    fill(0, 0, 255, 100);
-    rect(x, y, w, w);
-  };
-
-  this.show = function () {
-    var x = this.i * w;
-    var y = this.j * w;
-    stroke(255);
-    /*
-    Top left corner: (x, y)
-    Top right corner: (x+w, y)
-    Bottom left corner (x, y+w)
-    Bottom right corner (x+w, y+w)
-    */
-    if (this.walls[0]) {
-      line(x, y, x + w, y);
-    }
-
-    if (this.walls[1]) {
-      line(x + w, y, x + w, y + w);
-    }
-
-    if (this.walls[2]) {
-      line(x + w, y + w, x, y + w);
-    }
-
-    if (this.walls[3]) {
-      line(x, y + w, x, y);
-    }
-
-    if (this.visited) {
-      noStroke();
-      fill(255, 0, 255, 100);
-      rect(x, y, w, w);
-    }
-  };
-}
-
 function removeWalls(a, b) {
   // difference between current cell and neighboring cell
-  var x = a.i - b.i;
+  let x = a.i - b.i;
   if (x === 1) {
     // left wall of cell
     a.walls[3] = false;
@@ -156,7 +70,7 @@ function removeWalls(a, b) {
     b.walls[3] = false;
   }
 
-  var y = a.j - b.j;
+  let y = a.j - b.j;
   if (y === 1) {
     // top of cell
     a.walls[0] = false;
