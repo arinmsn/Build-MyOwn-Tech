@@ -3,7 +3,7 @@
 // Depth-first search
 
 var cols, rows;
-var w = 40;
+var w = 20;
 var grid = [];
 // current cell being visited
 var current;
@@ -31,11 +31,11 @@ function draw() {
     grid[i].show();
   }
   current.visited = true;
+  current.highlight();
   // // Step 1 Mark the current cell as visited
   var next = current.checkNeighbors();
   if (next) {
     next.visited = true;
-    current.highlight();
 
     // Step 2
     stack.push(current);
