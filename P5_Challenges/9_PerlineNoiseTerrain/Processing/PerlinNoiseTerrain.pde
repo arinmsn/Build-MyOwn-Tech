@@ -12,11 +12,16 @@ void setup(){
 
 void draw(){
     background(0);
-    for (int x = 0; x < cols; x++){
-        for (int y = 0; y < rows; y++){
-            stroke(255);
-            noFill();
-            rect(x*scl, y*scl, scl, scl);
+    stroke(255);
+    noFill();
+
+    for (int y = 0; y < rows; y++){
+        beginShape(TRIANGLE_STRIP);
+        for (int x = 0; x < cols; x++){
+           vertex(x*scl, y*scl);
+           vertex(x*scl, (y+1)*scl);
+            // rect(x*scl, y*scl, scl, scl);
         }
+        endShape();
     }
 }
