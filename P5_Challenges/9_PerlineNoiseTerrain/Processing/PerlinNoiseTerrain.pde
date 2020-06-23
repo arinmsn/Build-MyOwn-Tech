@@ -1,8 +1,8 @@
 int cols, rows;
 //scale 
 int scl = 20;
-int w = 600;
-int h = 600;
+int w = 2000;
+int h = 1600;
 float flying = 0;
 float[][] terrain;
 
@@ -29,7 +29,7 @@ void draw(){
     stroke(255);
     noFill();
 
-    translate(width/2, height/2);
+    translate(width/2, height/2+50);
     rotateX(PI/3);
     translate(-w/2, -h/2);
     for (int y = 0; y < rows; y++){
