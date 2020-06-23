@@ -4,15 +4,17 @@
 
 int cols, rows;
 int w = 20;
-
 ArrayList<Cell> grid = new ArrayList<Cell>();
 
 Cell current;
+
+ArrayList<Cell> stack = new ArrayList<Cell>();
 
 void setup(){
     size(600, 600);
     cols = floor(width/w);
     rows = floor(height/w);
+    //frameRate(5);
 
     for (int j = 0; j < rows; j++){
         for (int i = 0; i < cols; i++){
@@ -30,6 +32,23 @@ void draw(){
     }
     current.visited = true;
     current.highlight();
+
+    //Step 1
+    Cell next = current.checkNeighbors();
+    if (next != null){
+        next.visited = true;
+
+        //Step 2
+        stack.add(current);
+
+        //Step 3
+        // remove Walls func.
+
+        //Step 4
+        current = next;
+    } else if (stack.size() > 0){
+        current = stack.remove(stack.size() - 1);
+    }
 }
 
 int index(int i, int j){
