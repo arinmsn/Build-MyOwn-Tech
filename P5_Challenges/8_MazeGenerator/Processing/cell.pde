@@ -31,6 +31,13 @@ class Cell {
         if (left != null && !left.visited){
             neighbors.add(left);
         }
+
+        if (neighbors.size() > 0){
+            int r = floor(random(0, neighbors.size()));
+            return neighbors.get(r);
+        } else {
+            return null;
+        }
     }
 
     void highlight(){
@@ -44,14 +51,14 @@ class Cell {
     void show(){
         int x = this.i * w;
         int y = this.j * w;
-        noStroke(255);
+        stroke(255);
 
         if (this.walls[0]) {
             line(x, y, x+w, y);
         }
 
         if (this.walls[1]) {
-            line(x+w, y, x+w, w);
+            line(x+w, y, x+w, y+w);
         }
 
         if (this.walls[2]) {
