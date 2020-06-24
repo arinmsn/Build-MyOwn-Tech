@@ -10,7 +10,7 @@ float b = 28;
 float c = 8.0/3.0;
 
 void setup() {
-  size(800, 800);
+  size(800, 600, P3D);
   background(0);
 }
 
@@ -26,6 +26,7 @@ void draw(){
   z = z + dz;
 
   translate(width/2, height/2);
+  scale(5);
   stroke(255);
-  point(x, y);
+  point(x, y, z);
 }
