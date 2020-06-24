@@ -9,14 +9,16 @@ float b = 28;
 // Constant signifying Betha
 float c = 8.0/3.0;
 
+ArrayList<PVector> points = new ArrayList<PVector>();
+
 void setup() {
   size(800, 600, P3D);
-  background(0);
 }
 
 void draw(){
-  // Change in time
-  float dt = 1;
+  background(0);
+  // Change in time 
+  float dt = 0.01;
   // Change in x, y, and z
   float dx = a * (y - x);
   float dy = x * ((b-z) - y);
@@ -25,8 +27,16 @@ void draw(){
   y = y + dy;
   z = z + dz;
 
+  points.add(new PVector(x, y, z));
+
   translate(width/2, height/2);
   scale(5);
-  stroke(255);
-  point(x, y, z);
+  noStroke(255);
+  noFill();
+  
+  beginShape();
+  for (PVector v : points) {
+     vertex(v.x, v.y, v.z); 
+  }
+  endShape();
 }
