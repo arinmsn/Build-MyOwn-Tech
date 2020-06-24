@@ -17,7 +17,7 @@ PeasyCam cam;
 
 void setup() {
   size(800, 600, P3D);
-  color(HSB);
+  colorMode(HSB);
   cam = new Peasy(this, 500);
 }
 
@@ -35,7 +35,7 @@ void draw(){
 
   points.add(new PVector(x, y, z));
 
-  translate(width/2, height/2);
+  translate(0, 0, -80);
   scale(5);
   noStroke(255);
   noFill();
@@ -45,6 +45,9 @@ void draw(){
   for (PVector v : points) {
      stroke(hue, 255, 255);
      vertex(v.x, v.y, v.z); 
+     //PVector offset = PVector.random3D();
+     //offset.mult(0.1);
+     //v.add(offset);
      hue += 0.01;
      if (hu > 255){
          hu = 0;
