@@ -1,3 +1,5 @@
+import peasy.*;
+
 float x = 0.01;
 float y = 0;
 float z = 0;
@@ -11,8 +13,12 @@ float c = 8.0/3.0;
 
 ArrayList<PVector> points = new ArrayList<PVector>();
 
+PeasyCam cam;
+
 void setup() {
   size(800, 600, P3D);
+  color(HSB);
+  cam = new Peasy(this, 500);
 }
 
 void draw(){
@@ -33,10 +39,16 @@ void draw(){
   scale(5);
   noStroke(255);
   noFill();
-  
+
+  float hue = 0
   beginShape();
   for (PVector v : points) {
+     stroke(hue, 255, 255);
      vertex(v.x, v.y, v.z); 
+     hue += 0.01;
+     if (hu > 255){
+         hu = 0;
+     }
   }
   endShape();
 }
