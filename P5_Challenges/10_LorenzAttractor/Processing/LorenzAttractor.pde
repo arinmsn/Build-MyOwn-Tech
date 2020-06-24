@@ -11,6 +11,7 @@ float c = 8.0/3.0;
 
 void setup() {
   size(800, 800);
+  background(0);
 }
 
 void draw(){
@@ -21,6 +22,10 @@ void draw(){
   float dy = x * ((b-z) - y);
   float dz = x * y - (c*z);
   x = x + dx;
-  y = y + dx;
-  z = z + dx;
+  y = y + dy;
+  z = z + dz;
+
+  translate(width/2, height/2);
+  stroke(255);
+  point(x, y);
 }
