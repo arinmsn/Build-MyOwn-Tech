@@ -47,12 +47,13 @@ function draw() {
   stroke(255);
   noFill();
 
+  let hue = 0;
   beginShape();
   for (let v of points) {
     stroke(hue, 255, 255);
     vertex(v.x, v.y, v.z);
 
-    hue += 1;
+    hue += 0.1;
     if (hue > 255) {
       hue = 0;
     }
