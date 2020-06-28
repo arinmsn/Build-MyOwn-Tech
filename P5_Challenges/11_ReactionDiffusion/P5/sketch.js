@@ -24,6 +24,14 @@ function setup() {
 
 function draw() {
   background(51);
+
+  for (let x = 0; x < width; x++) {
+    for (let y = 0; y < height; y++) {
+      next[x][y].a = grid[x][y].a * 0.2;
+      next[x][y].b = grid[x][y].b * 1.2;
+    }
+  }
+
   loadPixels();
   for (let x = 0; x < width; x++) {
     for (let y = 0; y < height; y++) {
