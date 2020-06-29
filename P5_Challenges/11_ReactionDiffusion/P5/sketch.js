@@ -27,8 +27,8 @@ function draw() {
 
   for (let x = 0; x < width; x++) {
     for (let y = 0; y < height; y++) {
-      next[x][y].a = grid[x][y].a * 0.2;
-      next[x][y].b = grid[x][y].b * 1.2;
+      next[x][y].a = grid[x][y].a * 0.95;
+      next[x][y].b = grid[x][y].b * 1.01;
     }
   }
 
@@ -44,4 +44,12 @@ function draw() {
     }
   }
   updatePixels();
+
+  swap();
+}
+
+function swap() {
+  var temp = grid;
+  grid = next;
+  next = temp;
 }
