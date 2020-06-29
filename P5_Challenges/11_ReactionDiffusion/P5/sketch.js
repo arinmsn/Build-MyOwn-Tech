@@ -1,6 +1,13 @@
 let grid;
 let next;
 
+let dA = 1;
+let dB = 0.5;
+// rate at which chemcial A is added at a given "feed" rate
+let feed = 0.055;
+// kill rate, how quickly B chemicals are being removed
+let k = 0.062;
+
 function setup() {
   createCanvas(500, 500);
   pixelDensity(1);
@@ -27,8 +34,10 @@ function draw() {
 
   for (let x = 0; x < width; x++) {
     for (let y = 0; y < height; y++) {
-      next[x][y].a = grid[x][y].a * 0.95;
-      next[x][y].b = grid[x][y].b * 1.01;
+      let a = grid[x][y].a;
+      let b = grid[x][y].b;
+      next[x][y].a = a + (dA + laplaceA() * a) - a * b * b + feed * (1 - a);
+      next[x][y].b = b + (dB + laplaceB() * b) + a * b * b - (k + feed) * b;
     }
   }
 
