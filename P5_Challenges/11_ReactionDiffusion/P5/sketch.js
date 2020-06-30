@@ -22,7 +22,7 @@ function setup() {
         b: 0,
       };
       next[x][y] = {
-        a: 0,
+        a: 1,
         b: 0,
       };
     }
