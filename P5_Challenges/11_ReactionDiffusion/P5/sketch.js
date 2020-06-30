@@ -44,22 +44,27 @@ function draw() {
       let b = grid[x][y].b;
       next[x][y].a = a + dA * laplaceA(x, y) - a * b * b + feed * (1 - a);
       next[x][y].b = b + dB * laplaceB(x, y) + a * b * b - (k + feed) * b;
+
+      next[x][y].a = constrain(next[x][y].a, 0, 1);
+      next[x][y].b = constrain(next[x][y].b, 0, 1);
     }
   }
 
   loadPixels();
   for (let x = 0; x < width; x++) {
     for (let y = 0; y < height; y++) {
-      var c = color(255, 0, 100);
       var pix = (x + y * width) * 4;
-      pixels[pix + 0] = floor(grid[x][y].a * 255);
-      pixels[pix + 1] = 0;
-      pixels[pix + 2] = floor(grid[x][y].b * 255);
+      let a = next[x][y].a;
+      let b = next[x][y].b;
+      let c = floor((a - b) * 255);
+      c = constrain(c, 0, 255);
+      pixels[pix + 0] = c;
+      pixels[pix + 1] = c;
+      pixels[pix + 2] = c;
       pixels[pix + 3] = 255;
     }
   }
   updatePixels();
-
   swap();
 }
 
