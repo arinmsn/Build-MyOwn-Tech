@@ -57,6 +57,12 @@ void update(){
             float b = spot.b;
             float laplaceA = 0;
             float laplaceB = 0;
+
+            newspot.a = a + (dA*laplaceA - a*b*b + feed*(1-a))*1;
+            newspot.b = b + (dB*laplaceB + a*b*b - (k+feed)*b)*1;
+
+            newspot.a = constrain(newspot.a, 0, 1);
+            newspot.b = constrain(newspot.b, 0, 1);
         }
     }
 }
