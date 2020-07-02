@@ -93,4 +93,20 @@ void swap(){
 void draw(){ 
     prinln(frameRate);
 
+    for (int i = 0; i < 1; i++){
+        update();
+        swap();
+    }
+
+    loadPixels();
+    for (int i = 1; i < width - 1; i++){
+        for (int j = 1; j < height - 1; j++){
+            Cell spot = grid[i][j];
+            float a = spot.a;
+            float b = spot.b;
+            int pos = i + j * widht;
+            pixels[pos] = color((a-b)*255);
+        }
+    }
+    updatePixels();
 }
