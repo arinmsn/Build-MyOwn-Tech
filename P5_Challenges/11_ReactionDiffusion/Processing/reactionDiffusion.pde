@@ -56,6 +56,15 @@ void update(){
             float a = spot.a;
             float b = spot.b;
             float laplaceA = 0;
+            laplaceA += prev[i+1][j].a*0.2;
+            laplaceA += prev[i-1][j].a*0.2;
+            laplaceA += prev[i][j+1].a*0.2;
+            laplaceA += prev[i][j-1].a*0.2;
+            laplaceA += prev[i-1][j-1].a*0.05;
+            laplaceA += prev[i+1][j-1].a*0.05;
+            laplaceA += prev[i-1][j+1].a*0.05;
+            laplaceA += prev[i+1][j+1].a*0.05;
+
             float laplaceB = 0;
 
             newspot.a = a + (dA*laplaceA - a*b*b + feed*(1-a))*1;
