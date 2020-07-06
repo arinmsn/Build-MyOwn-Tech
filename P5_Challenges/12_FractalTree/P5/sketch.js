@@ -4,8 +4,11 @@ function setup() {
 
 function draw() {
   background(51);
-
-  var len = 100;
   stroke(255);
-  line(200, height, 200, height - len);
+  translate(200, height);
+  branch(100);
+}
+
+function branch(len) {
+  line(0, 0, 0, -len);
 }
