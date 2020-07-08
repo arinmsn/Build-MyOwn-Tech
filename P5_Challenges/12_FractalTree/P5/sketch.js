@@ -11,4 +11,11 @@ function draw() {
 
 function branch(len) {
   line(0, 0, 0, -len);
+  translate(0, -len);
+  // 45 deg
+  rotate(PI / 4);
+  if (len > 4) {
+    branch(len * 0.67);
+  }
+  // line(0, 0, 0, -len * 0.67);
 }
