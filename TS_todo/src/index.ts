@@ -8,17 +8,19 @@ let todos: TodoItem[] = [
 ];
 
 let collection: TodoCollection = new TodoCollection("Edmond", todos);
+let showCompleted = true;
 
 function displayTodoList(): void {
     console.log(`${collection.userName}'s Todo List ` 
     + `(${ collection.getItemCounts().incomplete } items to do)`);
 
-    collection.getTodoItems(true).forEach(
+    collection.getTodoItems(showCompleted).forEach(
         item => item.printDetails()
     );
 }
 
 enum Commands {
+    Toggle = "Show/Hide Completed",
     Quit = "Quit"
 }
 
@@ -29,10 +31,13 @@ function promptUser(): void {
         type: "list",
         name: "command",
         message: "Choose option",
-        choices: Object.values(Commands)
+        choices: Object.values(Commands),
     }).then(answers => {
-        if (answers["command"] !== Commands.Quit){
-            promptUser();
+        switch (answers["command"]) {
+            case Commands.Toggle:
+                showCompleted = !showCompleted;
+                promptUser();
+                break;
         }
     })
 }
