@@ -1,13 +1,13 @@
 import { TodoItem } from "./todoItem";
 import { TodoCollection } from "./todoCollection";
 import * as inquirer from "inquirer";
+import { JsonTodoCollection } from "./jsonTodoCollection";
 
 let todos: TodoItem[] = [
     new TodoItem(1, "Buy printer copy paper"), new TodoItem(2, "Buy toothpaste"),
     new TodoItem(3, "Buy Hockey season tickets"), new TodoItem(4, "Make dentist appointment", true)
 ];
-
-let collection: TodoCollection = new TodoCollection("Edmond", todos);
+let collection: TodoCollection = new JsonTodoCollection("Edmond", todos);
 let showCompleted = true;
 
 function displayTodoList(): void {
