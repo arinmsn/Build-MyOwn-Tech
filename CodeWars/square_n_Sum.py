@@ -5,13 +5,6 @@
 # it should return 9 because 1^2 + 2^2 + 2^2 = 9.
 
 def square_sum(numbers):
-    sum_of_digits = 0
-    for digit in numbers:
-        sum_of_digits += int(digit)**2
-    print(sum_of_digits)
-    
-    int_digit = int(digit)
-    sum_builtin_func = sum(int_digit**2) for digit in str(numbers)
-    print('Built-in sum: ' + sum_builtin_func)
+    return sum(x**2 for x in numbers)
 
 square_sum([1,2,2])
