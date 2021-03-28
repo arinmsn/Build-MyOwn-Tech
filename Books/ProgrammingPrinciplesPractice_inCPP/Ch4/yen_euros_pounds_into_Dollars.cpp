@@ -17,18 +17,34 @@ int main()
     char unit;
 
     cout << "======================= Currency Converter =========================\n";
-    cout << "'y' for Japanese Yen.\t'e' for Euros.\t'p' for GBP - British Pound.\n";
+    cout << "'y' for Japanese Yen.\t'u' for Euros.\t'p' for GBP - British Pound.\n";
     cout << "\nPlease enter a amount followed by a currency:  ";
     cin >> currency >> unit;
 
-    if (unit == 'y') {
-        cout << currency << " yen is " << yen_to_dollars * currency << " dollars\n";    
-    } else if (unit == 'e') {
-        cout << currency << " euros is " << euro_to_dollars * currency << " dollars\n";    
-    } else if (unit == 'p') {
-        cout << currency << " British pounds is " << britishPound_to_dollars * currency << " dollars\n";    
-    } else {
+    // if (unit == 'y') {
+    //     cout << currency << " yen is " << yen_to_dollars * currency << " dollars\n";    
+    // } else if (unit == 'e') {
+    //     cout << currency << " euros is " << euro_to_dollars * currency << " dollars\n";    
+    // } else if (unit == 'p') {
+    //     cout << currency << " British pounds is " << britishPound_to_dollars * currency << " dollars\n";    
+    // } else {
+    //     cout << "Sorry, I am not familiar with that currency yet.\n";
+    // }
+
+    switch (unit)
+    {
+    case 'y':
+        cout << currency << " yen is " << yen_to_dollars * currency << " dollars\n";
+        break;
+    case 'u':
+        cout << currency << " euros is " << euro_to_dollars * currency << " dollars\n";  
+        break;
+    case 'p':
+        cout << currency << " British pounds is " << britishPound_to_dollars * currency << " dollars\n";
+        break;
+    default:
         cout << "Sorry, I am not familiar with that currency yet.\n";
+        break;
     }
 
 }
