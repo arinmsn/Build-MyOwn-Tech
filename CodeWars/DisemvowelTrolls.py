@@ -15,13 +15,7 @@ def disemvowel(string):
     for i in "aeiouAEIOU":
         string = string.replace(i, "")
     return string
-#     lettersToBeReplaced = ['a', 'i', 'e', 'u', 'o']
-#     replaceVowels(string, lettersToBeReplaced, "")
 
-# def replaceVowels(string, lettersToBeReplaced, newString):
-#     for elem in lettersToBeReplaced:
-#         if elem in string:
-#             string = string.replace(elem, newString)
-#     return string
-
-# disemvowel("This website is for losers LOL!")
+# Alternative solutions
+def disemvowel(s):
+    return s.translate(None, "aeiouAEIOU")
