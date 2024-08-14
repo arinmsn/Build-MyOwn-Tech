@@ -29,8 +29,13 @@ valid_words = [key for key in words_dict.keys() if pattern.match(key)]
 if valid_words:
     random_word = random.choice(valid_words)
 
-print(random_word)
 # TODO - Based on length of the word, show _ underscores for each letter in the word
+print(random_word)
+print(len(random_word))
+
+for _ in range(len(random_word)):
+    print("_ ", end='')
+
 # TODO - Ask user to guess a letter and assign their response to a variable. Make guess lowercase.
 # TODO-3 - Check if the letter the user guessed  is one of the letters in the chosen_word. Print "Right" if it
 #  is, "Wrong" if it's not.
