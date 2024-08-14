@@ -38,3 +38,4 @@ for _ in range(len(random_word)):
 # TODO - Ask user to guess a letter and assign their response to a variable. Make guess lowercase.
 # TODO-3 - Check if the letter the user guessed  is one of the letters in the chosen_word. Print "Right" if it
 #  is, "Wrong" if it's not.
+
