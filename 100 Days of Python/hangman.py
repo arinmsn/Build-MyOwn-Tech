@@ -2,6 +2,7 @@
 import json
 import random
 import re
+
 """
 The dictionary.json was used from WebstersEnglishDictionary Github project.
 
@@ -11,10 +12,10 @@ Webster's Unabridged English Dictionary provided by Project Gutenberg
 
 """
 
-# TODO - create a list of random words (at least 50)
-# TODO - Randomly choose a word out of the list above
 random_word = None
 filename = './data/dictionary.json'
+placeholder = ""  # _ for each letter of the word
+display = ""
 
 with open(filename, 'r') as file:
     words_dict = json.load(file)
@@ -29,13 +30,21 @@ valid_words = [key for key in words_dict.keys() if pattern.match(key)]
 if valid_words:
     random_word = random.choice(valid_words)
 
-# TODO - Based on length of the word, show _ underscores for each letter in the word
 print(random_word)
 print(len(random_word))
 
-for _ in range(len(random_word)):
-    print("_ ", end='')
-# TODO - Ask user to guess a letter and assign their response to a variable. Make guess lowercase.
-# TODO-3 - Check if the letter the user guessed  is one of the letters in the chosen_word. Print "Right" if it
-#  is, "Wrong" if it's not.
+placeholder += "_" * len(random_word)
 
+print(placeholder)
+
+user_guess = input("\nGo ahead and guess a letter out of this word: ").lower()
+
+print(user_guess)
+
+for letter in random_word:
+    if letter == user_guess:
+        display += letter
+    else:
+        display += "_"
+
+print(display)
