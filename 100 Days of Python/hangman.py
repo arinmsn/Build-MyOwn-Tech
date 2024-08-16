@@ -12,10 +12,70 @@ Webster's Unabridged English Dictionary provided by Project Gutenberg
 
 """
 
+stages = ['''
+  +---+
+  |   |
+  O   |
+ /|\  |
+ / \  |
+      |
+=========
+''', '''
+  +---+
+  |   |
+  O   |
+ /|\  |
+ /    |
+      |
+=========
+''', '''
+  +---+
+  |   |
+  O   |
+ /|\  |
+      |
+      |
+=========
+''', '''
+  +---+
+  |   |
+  O   |
+ /|   |
+      |
+      |
+=========''', '''
+  +---+
+  |   |
+  O   |
+  |   |
+      |
+      |
+=========
+''', '''
+  +---+
+  |   |
+  O   |
+      |
+      |
+      |
+=========
+''', '''
+  +---+
+  |   |
+      |
+      |
+      |
+      |
+=========
+''']
+
 random_word = None
 filename = './data/dictionary.json'
 placeholder = ""  # _ for each letter of the word
 display = ""
+lives = 6
+game_over = False
+correct_letters = []
 
 with open(filename, 'r') as file:
     words_dict = json.load(file)
@@ -37,9 +97,6 @@ placeholder += "_" * len(random_word)
 
 print(placeholder)
 
-game_over = False
-correct_letters = []
-
 while not game_over:
     user_guess = input("\nGo ahead and guess a letter out of this word: ").lower()
     display = ""
@@ -55,6 +112,14 @@ while not game_over:
 
     print(display)
 
+    if user_guess not in random_word:
+        lives -= 1
+        if lives == 0:
+            game_over = True
+            print("You lose! Better luck next time.")
+
     if "_" not in display:
         game_over = True
         print("You won!")
+
+    print(stages[lives])
