@@ -1,5 +1,7 @@
 import random
 
+# Day 4
+
 rock = '''
     _______
 ---'   ____)
