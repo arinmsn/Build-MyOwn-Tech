@@ -48,7 +48,7 @@ def mergeTwoLists(self, list1, list2):
             list2 = list2.next
         tail = tail.next
 
-    # If one of the lists is still empty, then attach the remainder
+    # If one of the lists is still not empty, then attach the remainder
     if list1:
         tail.next = list1
     else:
