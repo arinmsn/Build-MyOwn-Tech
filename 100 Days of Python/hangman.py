@@ -2,6 +2,7 @@
 import json
 import random
 import re
+from hangman_art import stages, logo
 
 """
 The dictionary.json was used from WebstersEnglishDictionary Github project.
@@ -11,63 +12,7 @@ Matt Reagan - Website: http://sound-of-silence.com/
 Webster's Unabridged English Dictionary provided by Project Gutenberg
 
 """
-
-stages = ['''
-  +---+
-  |   |
-  O   |
- /|\  |
- / \  |
-      |
-=========
-''', '''
-  +---+
-  |   |
-  O   |
- /|\  |
- /    |
-      |
-=========
-''', '''
-  +---+
-  |   |
-  O   |
- /|\  |
-      |
-      |
-=========
-''', '''
-  +---+
-  |   |
-  O   |
- /|   |
-      |
-      |
-=========''', '''
-  +---+
-  |   |
-  O   |
-  |   |
-      |
-      |
-=========
-''', '''
-  +---+
-  |   |
-  O   |
-      |
-      |
-      |
-=========
-''', '''
-  +---+
-  |   |
-      |
-      |
-      |
-      |
-=========
-''']
+print(logo)
 
 random_word = None
 filename = './data/dictionary.json'
@@ -90,15 +35,17 @@ valid_words = [key for key in words_dict.keys() if pattern.match(key)]
 if valid_words:
     random_word = random.choice(valid_words)
 
-print(random_word)
-print(len(random_word))
-
 placeholder += "_" * len(random_word)
 
 print(placeholder)
 
 while not game_over:
-    user_guess = input("\nGo ahead and guess a letter out of this word: ").lower()
+    print(f"\n  --------   {lives}/6 lives left    --------")
+    user_guess = input("Go ahead and guess a letter out of this word: ").lower()
+
+    if user_guess in correct_letters:
+        print(f"Looks like you have already guessed {user_guess}.")
+
     display = ""
 
     for letter in random_word:
@@ -114,9 +61,11 @@ while not game_over:
 
     if user_guess not in random_word:
         lives -= 1
+        print(f"You guessed {user_guess}, but that's not in the word. You lose a life!")
         if lives == 0:
             game_over = True
             print("You lose! Better luck next time.")
+            print(f"The correct word was {random_word}")
 
     if "_" not in display:
         game_over = True
