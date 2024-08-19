@@ -17,7 +17,7 @@ function largestPrimeFactor(number) {
 
     // Check odd factors from 3 and up
     let factor = 3;
-    // This will ensure taht we only check divisors up to the (number)^2
+    // This will ensure that we only check divisors up to the (number)^2
     // by the smallest possible odd factors.
     while (factor * factor <= number) {
         // This will remove all factors of the current odd factor
