@@ -9,13 +9,14 @@ def find_smallest_two_numbers(length, width, height):
         second_smallest = min(length, width)
 
     return smallest_side, second_smallest
-def calculate_gift_wrapping_paper(length, width, height):
 
+
+def calculate_gift_wrapping_paper(length, width, height):
     smallest_side, second_smallest = find_smallest_two_numbers(length, width, height)
 
     extra_slack = smallest_side * second_smallest
 
-    surface_area = (2*length*width) + (2*width*height) + (2*height*length)
+    surface_area = (2 * length * width) + (2 * width * height) + (2 * height * length)
     final_wrapping_paper_size = surface_area + extra_slack
 
     return final_wrapping_paper_size
@@ -45,10 +46,7 @@ with open('data.txt', 'r') as file:
         height = int(height)
 
         total_wrapping_paper += calculate_gift_wrapping_paper(length, width, height)
-        total_ribbion_length+= calculate_ribbon_length_to_order(length, width, height)
+        total_ribbion_length += calculate_ribbon_length_to_order(length, width, height)
 
-    print(f"Total gift wrapping paper: {total_wrapping_paper}") # Part I: 1606483
-    print(f"Total ribbon length: {total_ribbion_length}") # Part II: 3842356
-
-
-
+    print(f"Total gift wrapping paper: {total_wrapping_paper}")  # Part I: 1606483
+    print(f"Total ribbon length: {total_ribbion_length}")  # Part II: 3842356
