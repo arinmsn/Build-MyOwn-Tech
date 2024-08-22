@@ -1,5 +1,3 @@
-import itertools
-
 with open("data.txt", "r") as file:
     str = file.read().replace("\n", "")
 
