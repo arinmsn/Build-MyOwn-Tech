@@ -24,6 +24,8 @@ function smallestMult(n) {
 module.exports = { gcd, lcm, smallestMult };
 
 /*
-Time complexity: For smallestMult() function: O(n^2) because we have two nested loops, the outher loop runs from 2 -> n and inner loop calls 'lcm' function which has a time complexity of O(log(min(a,b))). LCM function is called for each number from 2 to n; therefore, overall time complexity is O(n^2).
+Time complexity: For smallestMult() function: O(n^2) because we have two nested loops,
+the outher loop runs from 2 -> n and inner loop calls 'lcm' function which has a time complexity of O(log(min(a,b))).
+LCM function is called for each number from 2 to n; therefore, overall time complexity is O(n^2).
 Space complexity: 'smallestMult' function is O(1).
 */
