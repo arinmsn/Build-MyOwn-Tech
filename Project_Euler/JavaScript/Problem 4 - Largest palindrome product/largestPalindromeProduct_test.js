@@ -2,8 +2,8 @@ const assert = require('assert');
 const { isPalindromeNumber, largestPalindromeProduct } = require('./largestPalindromeProduct');
 
 // Test cases
-describe('Largest Palindrom Tests', function () {
-	it('should correctly identify a palindrom number', function () {
+describe('Largest Palindrome Tests', function () {
+	it('should correctly identify a palindrome number', function () {
 		assert.strictEqual(isPalindromeNumber(121), true);
 		assert.strictEqual(isPalindromeNumber(131), true);
 		assert.strictEqual(isPalindromeNumber(242), true);
