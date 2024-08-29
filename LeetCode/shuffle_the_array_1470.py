@@ -29,6 +29,6 @@ def shuffle(nums, n):
 
 
 """
-Time complexity:
-Space complexity:
-"""
+Time complexity: O(n)
+Space complexity: O(n) - function creates a new list of length 2n to store the shuffle elements.
+""" 
