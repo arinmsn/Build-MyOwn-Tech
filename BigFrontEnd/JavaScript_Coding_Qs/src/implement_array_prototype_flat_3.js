@@ -8,7 +8,6 @@ Here is an example to illustrate
 Follow up: Are you able to solve it both recursively and iteratively?
 */
 
-const measurePerformance = require("./helpers/measure_performance");
 
 // The resursive way
 function flatRecursive(arr, depth = 1) {
@@ -23,19 +22,24 @@ function flatRecursive(arr, depth = 1) {
 }
 
 function flatIterative(arr, depth = 1) {
-    let result = arr.slice(0)
-    let hasArrayItem = true
-    while (depth-- > 0) {
-        hasArrayItem = false
-        let count = result.lenth
-        while (count-- > 0) {
-            const head = result.shift()
-            if (Array.isArray(head)) {
-                hasArrayItem = true
-                result.push(...head)
-            } else {
-                result.push(head)
-            }
+    // Attach depth to each item
+    const result = arr.map((item) => [item, depth])
+
+    const end = Symbol('end')
+    result.push(end)
+
+    while (result.length > 0) {
+        const head = result.shift()
+        if (head == end) {
+            break
+        }
+        const [item, itemStep] = head
+        // if item is an array and we can flatten further
+        // then put its items back with a less depth
+        if (Array.isArray(item) && itemStep > 0) {
+            result.unshift(...item.map((arrayItem) => [arrayItem, itemStep - 1]))
+        } else {
+            result.push(item)
         }
     }
     return result
@@ -51,7 +55,7 @@ console.log([1, 2, [3, 4, [5, 6, [7, 8, [9, 10]]]]].flatRecursive(Infinity));
 console.log(flatIterative([1, [2], [3, [4]]]));
 console.log(flatIterative([1, [2], [3, [4]]], 1));
 console.log(flatIterative([1, [2], [3, [4]]], 2));
-console.log(measurePerformance(flatIterative([1, 2, [3, 4, [5, 6, [7, 8, [9, 10]]]]], Infinity)));
+console.log(flatIterative([1, 2, [3, 4, [5, 6, [7, 8, [9, 10]]]]], Infinity));
 
 
 
