@@ -19,3 +19,7 @@ function measurePerformance(fn, ...args) {
 }
 
 module.exports = measurePerformance;
+
+/*
+Usage: e.g.  measurePerformance(curriedJoin, 1, 2, 3);
+*/
