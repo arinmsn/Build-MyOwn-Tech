@@ -21,5 +21,11 @@ function measurePerformance(fn, ...args) {
 module.exports = measurePerformance;
 
 /*
-Usage: e.g.  measurePerformance(curriedJoin, 1, 2, 3);
+Usage: 
+
+First, import it in the file name that you intend in using.
+const measurePerformance = require("./helpers/measure_performance");
+
+Then, simply wrap the function being tested around measurePerformance() function.
+e.g.  measurePerformance(curriedJoin, 1, 2, 3);
 */
