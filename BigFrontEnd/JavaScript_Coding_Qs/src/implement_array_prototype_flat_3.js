@@ -22,27 +22,21 @@ function flatRecursive(arr, depth = 1) {
 }
 
 function flatIterative(arr, depth = 1) {
-    // Attach depth to each item
-    const result = arr.map((item) => [item, depth])
+    const stack = arr.map((item) => [item, depth])
+    const result = []
 
-    const end = Symbol('end')
-    result.push(end)
-
-    while (result.length > 0) {
-        const head = result.shift()
-        if (head == end) {
-            break
-        }
-        const [item, itemStep] = head
+    while (stack.length > 0) {
+        const [item, itemDepth] = stack.pop()
         // if item is an array and we can flatten further
         // then put its items back with a less depth
-        if (Array.isArray(item) && itemStep > 0) {
-            result.unshift(...item.map((arrayItem) => [arrayItem, itemStep - 1]))
+        if (Array.isArray(item) && itemDepth > 0) {
+            stack.push(...item.map((arrayItem) => [arrayItem, itemDepth - 1]))
         } else {
             result.push(item)
         }
     }
-    return result
+    // the result array is in reversed order we need to reverse it back
+    return result.reverse()
 }
 
 /*
