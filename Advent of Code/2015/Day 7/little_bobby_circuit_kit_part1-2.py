@@ -45,12 +45,27 @@ class Circuit:
 
         return self.wires[wire]
 
+    def reset_wires(self):
+        self.wires.clear()
+
 
 circuit = Circuit()
 
 for instruction in instructions:
     circuit.add_instruction(instruction)
 
-signal_on_a = circuit.get_signal('a')
+initial_signal_on_a = circuit.get_signal('a')
 
-print("Signal on wire 'a' contains: ", signal_on_a)  # Part I: 16076
+print("Signal on wire 'a' contains: ", initial_signal_on_a)  # Part I: 16076
+
+"""
+Part II
+Now, take the signal you got on wire a, override wire b to that signal,
+and reset the other wires (including wire a). What new signal is ultimately provided to wire a?
+"""
+circuit.reset_wires()
+circuit.wires['b'] = initial_signal_on_a
+
+final_signal_on_a = circuit.get_signal('a')
+
+print("Final signal on wire 'a' after overriding with 'b':", final_signal_on_a)
