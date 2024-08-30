@@ -33,11 +33,16 @@ function nthPrime(n) {
     return primes[primes.length - 1];
 }
 
+module.exports = {
+    isPrime, nthPrime
+}
 
-console.log(nthPrime(6));
 /*
-Time complexity:
-Space complexity:
-*/
+For the iPrime() function:
+    Time complexity: O(sqrt(n)) - the loop that starts from 3 to the sq. root of the input number and checks the divisiblity of each number.
+    Space complexity: O(1)
 
-// TODO: some test cases 
+ For the nthPrime() function:
+    Time complexity: Approx. O(n * sqrt(n))
+    Space complexity: O(1)
+*/
