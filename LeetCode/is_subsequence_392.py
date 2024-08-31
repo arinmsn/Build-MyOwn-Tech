@@ -29,6 +29,7 @@ In this scenario, how would you change your code?
 
 
 def is_subsequence(self, s: str, t: str) -> bool:
+    """
     pointer_s = 0
     pointer_t = 0
 
@@ -43,10 +44,18 @@ def is_subsequence(self, s: str, t: str) -> bool:
     # True only if pointer_s has moved through all of `s`
     # `s` is a subsequence of `t`
     return pointer_s == len(s)
-
+    """
+    t_iter = iter(t)
+    return all(char in t_iter for char in s)
 
 
 """
+For longer approach:
 Time complexity: At most, O(m + n), where m is the length of string `s` and n is the length of string `t`
 Space complexity: O(1)
+
+For the concise version:
+Time complexity: O(n) - 
+Space complexity: The space complexity is also O(n), as the function creates an iterator for string t,
+which requires additional space proportional to the length of t.
 """
