@@ -16,7 +16,7 @@ https://lodash.com/docs/4.17.15#curry
 
 */
 
-const measurePerformance = require("./helpers/measure_performance");
+import measurePerformance from "../../../JavaScript Helpers/measure_performance";
 
 /**
  * @param { (...args: any[]) => any } fn
