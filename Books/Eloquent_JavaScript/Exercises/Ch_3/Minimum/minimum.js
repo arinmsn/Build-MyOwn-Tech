@@ -13,8 +13,7 @@ console.log(min(0, -10));
 
 */
 function minimum(a, b) {
-  if (a < b) return a;
-  return b;
+  return a < b ? a : b;
 }
 
 module.exports = minimum;
