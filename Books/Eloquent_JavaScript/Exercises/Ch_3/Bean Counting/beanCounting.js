@@ -11,14 +11,8 @@ console.log(countChar("kakkerlak", "k"));
 // → 4
 
 */
-const countBs = function (s) {
-  let numOfBs = 0;
-  for (let i = 0; i < s.length; i++) {
-    if (s[i] === "B") {
-      numOfBs++;
-    }
-  }
-  return numOfBs;
-};
+function countBs(str) {
+  return str.split("B").length - 1;
+}
 
 module.exports = countBs;
