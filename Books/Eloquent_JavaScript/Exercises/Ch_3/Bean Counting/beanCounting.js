@@ -11,8 +11,10 @@ console.log(countChar("kakkerlak", "k"));
 // → 4
 
 */
-function countBs(str) {
-  return str.split("B").length - 1;
+function countChar(str, char) {
+  return str.split(char).length - 1;
 }
 
-module.exports = countBs;
+module.exports = countChar;
+
+console.log(countChar("kakkerlak", "k"));
