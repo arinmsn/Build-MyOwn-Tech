@@ -3,8 +3,8 @@ const countBs = require("../beanCounting");
 
 describe("it should correctly count B`s in a string", () => {
   it("should return correct number of B`s in a string", () => {
-    string_list = ["BOB", "BOBbY", "BOBBY"];
-    result = [2, 2, 3];
+    string_list = ["BOB", "BOBbY", "fliBBertigiBBet", "BaBBitt", "bobbery"];
+    result = [2, 2, 4, 3, 0];
 
     for (let i = 0; i < string_list.length; i++) {
       assert.strictEqual(
