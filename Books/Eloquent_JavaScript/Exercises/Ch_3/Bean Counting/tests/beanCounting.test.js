@@ -1,19 +1,16 @@
 const assert = require("assert");
-const countBs = require("../beanCounting");
+const countChar = require("../beanCounting");
 
-describe("it should correctly count B`s in a string", () => {
-  it("should return correct number of B`s in a string", () => {
-    string_list = ["BOB", "BOBbY", "fliBBertigiBBet", "BaBBitt", "bobbery"];
-    result = [2, 2, 4, 3, 0];
-
-    for (let i = 0; i < string_list.length; i++) {
-      assert.strictEqual(
-        countBs(string_list[i]),
-        result[i],
-        `Failed for string "${string_list[i]}": expected ${
-          result[i]
-        }, but got ${countBs(string_list[i])}`
-      );
-    }
+describe("it should correctly count any char in a string", () => {
+  it("should return correct number of characters in a string", () => {
+    assert.strictEqual(countChar("kakkerlak", "k"), 4);
+    assert.strictEqual(countChar("flibbertigibbet", "b"), 4);
+    assert.strictEqual(countChar("abracadabra", "a"), 5);
+    assert.strictEqual(countChar("cachectic", "c"), 4);
+    assert.strictEqual(countChar("CaCtus", "C"), 2);
+    assert.strictEqual(countChar("beekeeper", "e"), 5);
+    assert.strictEqual(countChar("divisibilities", "i"), 6);
+    assert.strictEqual(countChar("xmen", "z"), 0);
+    assert.strictEqual(countChar("flipflopped", "j"), 0);
   });
 });
