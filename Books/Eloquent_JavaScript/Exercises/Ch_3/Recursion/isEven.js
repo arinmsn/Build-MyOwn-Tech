@@ -25,9 +25,16 @@ console.log(isEven(-1));
 function isEven(number) {
   if (number === 0) return true;
   if (number === 1) return false;
-  return isEven(number - 2);
+  if (number < 0) {
+    // Handles negative odd numbers
+    return isEven(-number);
+  } else {
+    return isEven(number - 2);
+  }
 }
 
 console.log(isEven(50)); // true
 console.log(isEven(75)); // false
-console.log(isEven(-1)); // RangeError: Maximum call stack size exceeded
+console.log(isEven(-1)); // false
+
+module.exports = isEven;
