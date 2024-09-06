@@ -28,6 +28,13 @@ function range(start, end) {
   return numArray;
 }
 
-console.log(range(1, 5));
+function sum(arr) {
+  let sum = 0;
 
-module.exports = range;
+  for (let num of arr) {
+    sum += num;
+  }
+  return sum;
+}
+
+module.exports = { range, sum };
