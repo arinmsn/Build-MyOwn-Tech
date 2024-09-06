@@ -15,7 +15,7 @@ describe("it should return correct sum given an array", () => {
   });
 });
 
-describe("returns array with correct start and end for given step", () => {
+describe("returns array with correct start and end for a step=0", () => {
   it("should return a warning and empty string if user enters 0 for step", () => {
     assert.deepStrictEqual(range(0, 5, 0), []);
     assert.deepStrictEqual(range(1, 10, 0), []);
