@@ -37,4 +37,27 @@ function sum(arr) {
   return sum;
 }
 
+// Bonus
+function range(start, end, step = 1) {
+  numArray = [];
+
+  if (step === 0) {
+    console.warn("Step cannot be 0. Returning an empty array.");
+    return numArray; // Return an empty array instead of throwing an error
+  }
+
+  if (step > 0) {
+    // Increment for positive step value
+    for (let i = start; i <= end; i += step) {
+      numArray.push(i);
+    }
+  } else {
+    // Decrement for negative step value
+    for (let i = start; i >= end; i += step) {
+      numArray.push(i);
+    }
+  }
+  return numArray;
+}
+
 module.exports = { range, sum };
