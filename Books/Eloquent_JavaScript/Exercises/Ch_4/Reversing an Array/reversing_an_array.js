@@ -29,10 +29,19 @@ function reverseArray(arr) {
 }
 
 function reverseArrayInPlace(arr) {
-  //
+  // Usage of Math.floor is to make sure we have an integer value for odd-length arrays
+  for (let i = 0; i < Math.floor(arr.length / 2); i++) {
+    // We store the element at index i in a temporary variable
+    let temp = arr[i];
+    // We replace the element at index i w/ element from opposite end of the array
+    arr[i] = arr[arr.length - 1 - i];
+    // We put the temprorary value (original arr[i]) at the opposite end
+    arr[arr.length - 1 - i] = temp;
+  }
+  return arr;
 }
 
 module.exports = { reverseArray, reverseArrayInPlace };
 
 let myArray = ["A", "B", "C"];
-console.log(reverseArray(myArray));
+console.log(reverseArrayInPlace(myArray));
