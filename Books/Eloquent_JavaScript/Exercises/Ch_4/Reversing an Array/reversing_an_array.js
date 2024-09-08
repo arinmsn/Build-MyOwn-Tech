@@ -20,12 +20,15 @@ console.log(arrayValue);
 */
 
 function reverseArray(arr) {
+  /*
   newArray = [];
   tempElement = null;
   for (let i = arr.length - 1; i >= 0; i--) {
     newArray.push(arr[i]);
   }
   return newArray;
+  */
+  return arr.map((item, index) => arr[arr.length - 1 - index]);
 }
 
 function reverseArrayInPlace(arr) {
