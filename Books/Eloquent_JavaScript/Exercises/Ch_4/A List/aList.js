@@ -41,7 +41,13 @@ function arrayToList(arr) {
 }
 
 function listToArray(list) {
-  // helper function prepend
+  const array = [];
+  let current = list;
+  while (current != null) {
+    array.push(current.value);
+    current = current.rest;
+  }
+  return array;
 }
 
 module.exports = { arrayToList, listToArray };
