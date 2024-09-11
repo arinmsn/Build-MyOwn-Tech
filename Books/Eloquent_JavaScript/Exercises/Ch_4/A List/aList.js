@@ -50,4 +50,29 @@ function listToArray(list) {
   return array;
 }
 
-module.exports = { arrayToList, listToArray };
+function prepend(element, list) {
+  return { value: element, rest: list };
+}
+
+function n_th(list, n) {
+  if (n === 0) {
+    return list.value;
+  } else if (list.rest === null) {
+    return undefined;
+  } else {
+    return n_th(list.rest, n - 1);
+  }
+}
+
+// Recursive approach
+function n_th_recursive(list, n) {
+  if (list === null || n < 0) {
+    return undefined;
+  } else if (n === 0) {
+    return list.value;
+  } else {
+    return n_th_recursive(list.rest, n - 1);
+  }
+}
+
+module.exports = { arrayToList, listToArray, n_th, n_th_recursive };
