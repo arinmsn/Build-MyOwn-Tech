@@ -1,5 +1,6 @@
 const assert = require("assert");
-const { arrayToList, listToArray } = require("../aList");
+const { arrayToList, listToArray, n_th, n_th_recursive } = require("../aList");
+const { toUnicode } = require("punycode");
 
 describe("Testing list to array conversion funciton", () => {
   it("should convert an empty array to null", function () {
@@ -53,3 +54,14 @@ describe("Testing listToArray", () => {
     assert.deepEqual(listToArray(list), [1, 2, 3]);
   });
 });
+
+describe("Testing n_th and n_th_recursive functions", () => {
+  it("should return the nth value in a list", () => {
+    assert.deepEqual(n_th(arrayToList([10, 20, 30]), 1), 20);
+    assert.deepEqual(n_th_recursive(arrayToList([10, 20, 30]), 1), 20);
+    assert.deepEqual(n_th(arrayToList([5, 20, 30]), 0), 5);
+    assert.deepEqual(n_th_recursive(arrayToList([5, 20, 30]), 0), 5);
+  });
+});
+
+// TODO: More test cases for prepend()
